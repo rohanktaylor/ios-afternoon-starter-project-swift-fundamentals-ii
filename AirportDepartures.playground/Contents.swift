@@ -37,11 +37,11 @@ struct Flight  {
 
 class DepartureBoard {
     var airport : Airport
-    var departures : [Flight]
+    var departure : [Flight]
     
     init(city : String ,code : String) {
         airport = Airport(city: city, code: code)
-        departures = []
+        departure = []
     }
 }
 //: ## 2. Create 3 flights and add them to a departure board
@@ -60,9 +60,9 @@ let flight3 = Flight(departureTime: Date(), terminal: "B", status: .etc)
 
 let laxDepartureBoard = DepartureBoard(city: "Los Angeles", code: "LAX")
 
-laxDepartureBoard.departures.append(flight1)
-laxDepartureBoard.departures.append(flight2)
-laxDepartureBoard.departures.append(flight3)
+laxDepartureBoard.departure.append(flight1)
+laxDepartureBoard.departure.append(flight2)
+laxDepartureBoard.departure.append(flight3)
 //: ## 3. Create a free-standing function that can print the flight information from the `DepartureBoard`
 //: a. Use the function signature: `printDepartures(departureBoard:)`
 //:
@@ -72,8 +72,8 @@ laxDepartureBoard.departures.append(flight3)
 //:
 //: d. Print out the current DepartureBoard you created using the function
 func printDepartures(departureBoard: DepartureBoard) {
-    for departures in departureBoard.departures {
-        print(departures.status.rawValue)
+    for departure in departureBoard.departure {
+        print(departure.status.rawValue)
         }
 }
 
@@ -92,15 +92,8 @@ printDepartures(departureBoard: laxDepartureBoard)
 //:     Destination: Los Angeles Airline: Delta Air Lines Flight: KL 6966 Departure Time:  Terminal: 4 Status: Canceled
 //:     Destination: Rochester Airline: Jet Blue Airways Flight: B6 586 Departure Time: 1:26 PM Terminal:  Status: Scheduled
 //:     Destination: Boston Airline: KLM Flight: KL 6966 Departure Time: 1:26 PM Terminal: 4 Status: Scheduled
-func printDepartures2(departureBoard: DepartureBoard) {
-    for time in departureBoard.departures {
-        if let unwrappedDepartureTime = time.departureTime {
-            print(unwrappedDepartureTime)
-        } else {
-    }
-}
-
-printDepartures2(departureBoard: flightDatabase)
+func printDepartures2(departureBoard: DepartureBoard)
+for departureBoard in departureBoard.departureFlights
 //: ## 5. Add an instance method to your `DepatureBoard` class (above) that can send an alert message to all passengers about their upcoming flight. Loop through the flights and use a `switch` on the flight status variable.
 //: a. If the flight is canceled print out: "We're sorry your flight to \(city) was canceled, here is a $500 voucher"
 //:
